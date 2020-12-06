@@ -14,7 +14,7 @@ interface ModalBlockProps {
   onClose: () => void;
 }
 
-export const ModalBlock: React.FC<ModalBlockProps> = ({
+export const Index: React.FC<ModalBlockProps> = ({
   title,
   onClose,
   visible = false,

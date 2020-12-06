@@ -7,7 +7,7 @@ import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import {ModalBlock} from '../components/ModalBlock/ModalBlock';
+import {Index} from '../components/ModalBlock';
 
 export const useStylesSignIn = makeStyles((theme) => ({
   wrapper: {
@@ -143,7 +143,7 @@ function SignIn() {
           <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>
             Войти
           </Button>
-          <ModalBlock
+          <Index
             visible={visibleModal === 'signIn'}
             onClose={handleCloseModal}
             classes={classes}
@@ -179,8 +179,8 @@ function SignIn() {
                 </Button>
               </FormGroup>
             </FormControl>
-          </ModalBlock>
-          <ModalBlock
+          </Index>
+          <Index
             visible={visibleModal === 'signUp'}
             onClose={handleCloseModal}
             classes={classes}
@@ -228,7 +228,7 @@ function SignIn() {
                 </Button>
               </FormGroup>
             </FormControl>
-          </ModalBlock>
+          </Index>
         </div>
       </section>
     </div>
