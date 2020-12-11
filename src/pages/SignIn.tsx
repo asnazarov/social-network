@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles, Typography, Button} from '@material-ui/core';
+import { makeStyles, Typography, Button } from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
@@ -7,7 +7,7 @@ import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import {Index} from '../components/ModalBlock';
+import { ModalBlock } from '../components/ModalBlock';
 
 export const useStylesSignIn = makeStyles((theme) => ({
   wrapper: {
@@ -28,8 +28,8 @@ export const useStylesSignIn = makeStyles((theme) => ({
     left: '50%',
     top: '53%',
     transform: 'translate(-50%, -50%)',
-    width: '350%',
-    height: '350%',
+    width: '260%',
+    height: '260%',
   },
   blueSideListInfo: {
     position: 'relative',
@@ -81,7 +81,7 @@ export const useStylesSignIn = makeStyles((theme) => ({
   },
 }));
 
-function SignIn() {
+export const SignIn: React.FC = (): React.ReactElement => {
   const classes = useStylesSignIn();
   const [visibleModal, setVisibleModal] = React.useState<'signIn' | 'signUp'>();
 
@@ -100,23 +100,23 @@ function SignIn() {
   return (
     <div className={classes.wrapper}>
       <section className={classes.blueSide}>
-        <TwitterIcon color="primary" className={classes.blueSideBigIcon}/>
+        <TwitterIcon color="primary" className={classes.blueSideBigIcon} />
         <ul className={classes.blueSideListInfo}>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
-              <SearchIcon className={classes.blueSideListInfoIcon}/>
+              <SearchIcon className={classes.blueSideListInfoIcon} />
               Читайте о том, что вам интересно.
             </Typography>
           </li>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
-              <PeopleIcon className={classes.blueSideListInfoIcon}/>
+              <PeopleIcon className={classes.blueSideListInfoIcon} />
               Узнайте, о чем говорят в мире.
             </Typography>
           </li>
           <li className={classes.blueSideListInfoItem}>
             <Typography variant="h6">
-              <MessageIcon className={classes.blueSideListInfoIcon}/>
+              <MessageIcon className={classes.blueSideListInfoIcon} />
               Присоединяйтесь к общению.
             </Typography>
           </li>
@@ -124,17 +124,17 @@ function SignIn() {
       </section>
       <section className={classes.loginSide}>
         <div className={classes.loginSideWrapper}>
-          <TwitterIcon color="primary" className={classes.loginSideTwitterIcon}/>
+          <TwitterIcon color="primary" className={classes.loginSideTwitterIcon} />
           <Typography className={classes.loginSideTitle} gutterBottom variant="h4">
             Узнайте, что происходит в мире прямо сейчас
           </Typography>
           <Typography>
             <b>Присоединяйтесь к Твиттеру прямо сейчас!</b>
           </Typography>
-          <br/>
+          <br />
           <Button
             onClick={handleClickOpenSignUp}
-            style={{marginBottom: 20}}
+            style={{ marginBottom: 20 }}
             variant="contained"
             color="primary"
             fullWidth>
@@ -143,7 +143,7 @@ function SignIn() {
           <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>
             Войти
           </Button>
-          <Index
+          <ModalBlock
             visible={visibleModal === 'signIn'}
             onClose={handleCloseModal}
             classes={classes}
@@ -179,8 +179,8 @@ function SignIn() {
                 </Button>
               </FormGroup>
             </FormControl>
-          </Index>
-          <Index
+          </ModalBlock>
+          <ModalBlock
             visible={visibleModal === 'signUp'}
             onClose={handleCloseModal}
             classes={classes}
@@ -228,11 +228,9 @@ function SignIn() {
                 </Button>
               </FormGroup>
             </FormControl>
-          </Index>
+          </ModalBlock>
         </div>
       </section>
     </div>
   );
-}
-
-export default SignIn;
+};
